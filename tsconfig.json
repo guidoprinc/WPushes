@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "lib": ["es6"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@authScreens/*": ["./src/app/screens/Auth/screens/*"],
+      "@components/*": ["src/app/components/*"],
+      "@config/*": ["src/config/*"],
+      "@constants/*": ["src/constants/*"],
+      "@hooks/*": ["src/app/hooks/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@navigationHelper": ["src/app/components/AppNavigator/helper.ts"],
+      "@redux/*": ["src/redux/*"],
+      "@screens/*": ["./src/app/screens/*"],
+      "@services/*": ["src/services/*"],
+      "@utils/*": ["src/utils/*"]
+    },
+    "skipLibCheck": true
+  },
+  "include": ["index.d.ts", "src/**/*"],
+  "exclude": [ ".history", "node_modules", "**/node_modules/*"]
+}
