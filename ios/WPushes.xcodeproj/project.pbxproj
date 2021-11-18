@@ -41,6 +41,7 @@
 		729CFAD1860AF5DF225E4A27 /* Pods-WPushes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WPushes.release.xcconfig"; path = "Target Support Files/Pods-WPushes/Pods-WPushes.release.xcconfig"; sourceTree = "<group>"; };
 		740CF484E7FA3FDFA9699E39 /* Pods-WPushes-WPushesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WPushes-WPushesTests.release.xcconfig"; path = "Target Support Files/Pods-WPushes-WPushesTests/Pods-WPushes-WPushesTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = WPushes/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A92C2CDF27469CB200651577 /* WPushes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WPushes.entitlements; path = WPushes/WPushes.entitlements; sourceTree = "<group>"; };
 		C4DDABEBCE3ED68126273442 /* libPods-WPushes-WPushesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WPushes-WPushesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CD5764909AA73B1F5AA3DB /* libPods-WPushes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WPushes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -86,6 +87,7 @@
 		13B07FAE1A68108700A75B9A /* WPushes */ = {
 			isa = PBXGroup;
 			children = (
+				A92C2CDF27469CB200651577 /* WPushes.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -104,7 +106,6 @@
 				39E821E918BD951752B81247 /* Pods-WPushes-WPushesTests.debug.xcconfig */,
 				740CF484E7FA3FDFA9699E39 /* Pods-WPushes-WPushesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -484,7 +485,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WPushes/WPushes.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7XS5GQGS29;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WPushes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -496,8 +501,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wpushes;
 				PRODUCT_NAME = WPushes;
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.wpushes";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -510,7 +516,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WPushes/WPushes.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7XS5GQGS29;
 				INFOPLIST_FILE = WPushes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,8 +531,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wpushes;
 				PRODUCT_NAME = WPushes;
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.wpushes";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
