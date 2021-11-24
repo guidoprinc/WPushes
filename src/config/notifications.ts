@@ -20,6 +20,7 @@ export interface Notification {
 
 export const getFirebaseToken = async () => {
   let fcmToken = await AsyncStorage.getItem('fcmToken');
+  debugger;
   if (!fcmToken) {
     fcmToken = await messaging().getToken();
     if (fcmToken) {
@@ -90,15 +91,15 @@ export const pushNotificationConfig = () => {
 };
 
 // TODO this make us able to send notifications locally
-export const setLocalNotifications = () => {
+export const setLocalNotifications = (title?: string, message?: string) => {
   lastId++;
   PushNotification.localNotification({
     id: `${lastId}`,
     autoCancel: true,
     vibration: 100,
     ongoing: false,
-    title: 'Local Notification',
-    message: 'Local Notification message',
+    title: title || 'Local Notification',
+    message: message || 'Local Notification message',
     playSound: false,
     soundName: 'default',
     actions: ["Yes", "No"],

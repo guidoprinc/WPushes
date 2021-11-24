@@ -4,4 +4,4 @@ import Routes from '@constants/routes';
 // TODO: Replace here the screens titles
 
 i18next.addResources('es', 'app', {
-    [Routes.Home]: 'Home'});
+    [Routes.Home]: 'WPushes'});

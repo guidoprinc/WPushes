@@ -1,13 +1,17 @@
 import React, {memo } from 'react';
-import { View } from 'react-native';
-import CustomText from '@components/CustomText';
+import { View, TouchableOpacity, Text } from 'react-native';
+import { setLocalNotifications } from '@config/notifications';
 
 import styles from './styles';
 
 function Home() {
+
+  const handlePress = () => setLocalNotifications();
   return (
     <View style={styles.container}>
-      <CustomText style={styles.home}>WPushes</CustomText>
+      <TouchableOpacity onPress={handlePress} style={styles.button}>
+          <Text style={styles.buttonText}>Local Notification</Text>
+      </TouchableOpacity>
     </View>
   );
 }

@@ -4,12 +4,12 @@ import messaging from '@react-native-firebase/messaging';
 import { useDispatch } from 'react-redux';
 import AppNavigator from '@components/AppNavigator';
 import { actionCreators as AuthActions } from '@redux/auth/actions';
-import { pushNotificationConfig } from '@config/notifications';
+import { pushNotificationConfig, registerAppWithFCM } from '@config/notifications';
 
 import './i18n';
 
 messaging().setBackgroundMessageHandler(async remoteMessage => {
-  console.log('Message handled in the background!', remoteMessage);
+  console.log('Here we can handle when we receive a notification from background. ', remoteMessage);
 });
 
 const App = () => {
@@ -17,29 +17,16 @@ const App = () => {
 
   useEffect(() => {
     pushNotificationConfig();
+    registerAppWithFCM();
     dispatch(AuthActions.init());
   }, [dispatch]);
 
   useEffect(() => {
-    // Assume a message-notification contains a "type" property in the data payload of the screen to open
-
-    messaging().onNotificationOpenedApp(remoteMessage => {
-      console.log(
-        'Notification caused app to open from background state:',
-        remoteMessage.notification,
-      );
-      // TODO add functionality
-    });
-
-    // Check whether an initial notification is available
     messaging()
       .getInitialNotification()
       .then(remoteMessage => {
         if (remoteMessage) {
-          console.log(
-            'Notification caused app to open from quit state:',
-            remoteMessage.notification,
-          );
+          Alert.alert('FCM received from initial: ', JSON.stringify(remoteMessage));
           // TODO add other functionality
         }
       });
@@ -47,7 +34,7 @@ const App = () => {
 
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+      Alert.alert('FCM received: ', JSON.stringify(remoteMessage));
     });
 
     return unsubscribe;
