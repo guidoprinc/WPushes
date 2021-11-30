@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import messaging from '@react-native-firebase/messaging';
-import PushNotification from 'react-native-push-notification';
+import PushNotification, { ReceivedNotification } from 'react-native-push-notification';
 import { isIos } from '@constants/platform';
 import {
   NOTIFICATION_CHANNEL_ID,
@@ -12,11 +12,11 @@ import {
 let lastId = 0;
 
 export interface Notification {
-    id: number;
-    title: string;
-    message: string;
-    createdAt: string;
-  }
+  id: number;
+  title: string;
+  message: string;
+  createdAt: string;
+}
 
 export const getFirebaseToken = async () => {
   let fcmToken = await AsyncStorage.getItem('fcmToken');
@@ -41,7 +41,7 @@ export const requestPermission = () =>
       getFirebaseToken();
     })
     .catch(() => {
-      // TODO: add a better handler for permissions rejection
+      // Handle permission rejections here
       console.log('Error with permissions');
     });
 
@@ -60,18 +60,12 @@ export const registerAppWithFCM = async () => {
 };
 
 export const pushNotificationConfig = () => {
+
   PushNotification.configure({
-    onNotification: (notification: any) => {
+    onNotification: (notification: Omit<ReceivedNotification, 'userInfo'>) => {
       if (!notification.foreground || (isIos && notification.foreground)) {
         if (isIos) PushNotificationIOS.setApplicationIconBadgeNumber(0);
         PushNotification.cancelAllLocalNotifications();
-      }
-      if (isIos) {
-        const totalNotifications = parseInt(notification.total_notifications, 10);
-        if (!notification.userInteraction && Number.isInteger(totalNotifications)) {
-          PushNotificationIOS.setApplicationIconBadgeNumber(totalNotifications);
-        }
-        notification.finish(PushNotificationIOS.FetchResult.NoData);
       }
     },
     permissions: {
@@ -88,6 +82,7 @@ export const pushNotificationConfig = () => {
     channelName: NOTIFICATION_CHANNEL_NAME,
     channelDescription: NOTIFICATION_CHANNEL_DESCRIPT
   }, (created) => console.log(`createChannel returned '${created}'`));
+
 };
 
 // TODO this make us able to send notifications locally
@@ -99,12 +94,9 @@ export const setLocalNotifications = (title?: string, message?: string) => {
     vibration: 100,
     ongoing: false,
     title: title || 'Local Notification',
-    message: message || 'Local Notification message',
+    message: message || 'This is the Local Notification message example',
     playSound: false,
     soundName: 'default',
-    actions: ["Yes", "No"],
     channelId: NOTIFICATION_CHANNEL_ID
   });
 };
-
-export const checkNotificationPermission = (cbk: any) => PushNotification.checkPermissions(cbk);
