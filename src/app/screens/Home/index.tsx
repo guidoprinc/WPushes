@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
-import { setLocalNotifications } from '@config/notifications';
+import { sendLocalNotifications } from '@config/notifications';
 
 import styles from './styles';
 
 function Home() {
 
-  const handlePress = () => setLocalNotifications();
+  const handlePress = () => sendLocalNotifications();
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handlePress} style={styles.button}>

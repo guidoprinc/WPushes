@@ -4,7 +4,7 @@ import messaging from '@react-native-firebase/messaging';
 import { useDispatch } from 'react-redux';
 import AppNavigator from '@components/AppNavigator';
 import { actionCreators as AuthActions } from '@redux/auth/actions';
-import { pushNotificationConfig, registerAppWithFCM } from '@config/notifications';
+import { pushNotificationConfig, registerAppWithFCM, sendLocalNotifications } from '@config/notifications';
 
 import './i18n';
 
@@ -22,12 +22,20 @@ const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    messaging().onNotificationOpenedApp(remoteMessage => {
+      console.log(
+        'Notification caused app to open from background state:',
+        remoteMessage.notification,
+      );
+      // You can add new functionality
+    });
+
     messaging()
       .getInitialNotification()
       .then(remoteMessage => {
         if (remoteMessage) {
           Alert.alert('FCM received from initial: ', JSON.stringify(remoteMessage));
-          // TODO add other functionality
+          // You can add other functionality here
         }
       });
   }, []);
