@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { green } from '@constants/colors';
+import { green, white } from '@constants/colors';
 
 export default StyleSheet.create({
   container: {
@@ -7,9 +7,14 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  home: {
+  button: {
     backgroundColor: green,
-    padding: 10,
-    borderRadius: 3
+    padding: 15,
+    borderRadius: 8
+  },
+  buttonText: {
+    color: white,
+    fontWeight: 'bold',
+    fontSize: 20
   }
 });

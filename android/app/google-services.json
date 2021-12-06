@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1014769410155",
+    "project_id": "wpushes",
+    "storage_bucket": "wpushes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014769410155:android:9caedc1605137ac7af512e",
+        "android_client_info": {
+          "package_name": "com.wpushes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014769410155-ve6juirt7e4pme0f432ad3stsctc3gjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdR9N8C5-i6eMTHTgInM_Z6Y7rLJtiv5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1014769410155-ve6juirt7e4pme0f432ad3stsctc3gjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

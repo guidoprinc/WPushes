@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WPushes</string>
+    <string name="default_notification_channel_id" translatable="false">wpushes-channel-id</string>
 </resources>

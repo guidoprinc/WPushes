@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		5E45D779BF3CDB7509071F4E /* libPods-WPushes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7CD5764909AA73B1F5AA3DB /* libPods-WPushes.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A92C2CE12746ADF200651577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92C2CE02746ADF200651577 /* GoogleService-Info.plist */; };
 		E9AD8CEA06B6F268FD12AA8F /* libPods-WPushes-WPushesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4DDABEBCE3ED68126273442 /* libPods-WPushes-WPushesTests.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		740CF484E7FA3FDFA9699E39 /* Pods-WPushes-WPushesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WPushes-WPushesTests.release.xcconfig"; path = "Target Support Files/Pods-WPushes-WPushesTests/Pods-WPushes-WPushesTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = WPushes/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92C2CDF27469CB200651577 /* WPushes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = WPushes.entitlements; path = WPushes/WPushes.entitlements; sourceTree = "<group>"; };
+		A92C2CE02746ADF200651577 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C4DDABEBCE3ED68126273442 /* libPods-WPushes-WPushesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WPushes-WPushesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CD5764909AA73B1F5AA3DB /* libPods-WPushes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WPushes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -129,6 +131,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A92C2CE02746ADF200651577 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* WPushes */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* WPushesTests */,
@@ -246,6 +249,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				A92C2CE12746ADF200651577 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
